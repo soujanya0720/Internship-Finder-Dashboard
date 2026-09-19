@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Internship Finder Dashboard - Discover, search, filter and save internship opportunities.">
+
+    <title>Internship Finder | Student Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ==============================
+     SIDEBAR
+================================ -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-briefcase"></i>
+        </div>
+
+        <div>
+            <h2>InternFinder</h2>
+            <span>Student Portal</span>
+        </div>
+    </div>
+
+    <nav class="navigation">
+
+        <p class="nav-title">MENU</p>
+
+        <a href="#dashboard" class="nav-link active">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#internships" class="nav-link">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Find Internships</span>
+        </a>
+
+        <a href="#saved" class="nav-link">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>Saved</span>
+            <span class="saved-count" id="sidebarSavedCount">0</span>
+        </a>
+
+        <p class="nav-title">ACCOUNT</p>
+
+        <a href="#profile" class="nav-link">
+            <i class="fa-regular fa-user"></i>
+            <span>My Profile</span>
+        </a>
+
+        <a href="#settings" class="nav-link">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <div class="help-box">
+            <div class="help-icon">
+                <i class="fa-regular fa-circle-question"></i>
+            </div>
+
+            <div>
+                <strong>Need Help?</strong>
+                <p>Find your perfect internship.</p>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <span>© 2026 InternFinder</span>
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ==============================
+     MAIN CONTENT
+================================ -->
+
+<main class="main-content">
+
+    <!-- TOP HEADER -->
+
+    <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="topbar-title">
+            <h1 id="pageTitle">Dashboard</h1>
+            <p>Find opportunities that match your career goals.</p>
+        </div>
+
+        <div class="topbar-actions">
+
+            <button class="icon-btn" id="themeToggle" title="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button class="icon-btn notification-btn" title="Notifications">
+                <i class="fa-regular fa-bell"></i>
+                <span></span>
+            </button>
+
+            <div class="profile-mini">
+                <div class="avatar">SM</div>
+
+                <div class="profile-info">
+                    <strong>Student</strong>
+                    <span>CSE Student</span>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         DASHBOARD
+    ================================ -->
+
+    <section id="dashboard" class="page-section">
+
+        <!-- Welcome Banner -->
+
+        <div class="welcome-banner">
+
+            <div class="welcome-content">
+                <span class="welcome-label">WELCOME BACK 👋</span>
+
+                <h2>Find your next<br>
+                    <span>opportunity.</span>
+                </h2>
+
+                <p>
+                    Explore internships from different fields
+                    and take the next step in your career.
+                </p>
+
+                <button class="primary-btn" id="exploreBtn">
+                    Explore Internships
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div class="welcome-illustration">
+                <i class="fa-solid fa-laptop-code"></i>
+                <div class="floating-icon icon-one">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="floating-icon icon-two">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="floating-icon icon-three">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Statistics -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+
+                <div>
+                    <span>Total Internships</span>
+                    <h3 id="totalInternships">0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon remote">
+                    <i class="fa-solid fa-house-laptop"></i>
+                </div>
+
+                <div>
+                    <span>Remote Internships</span>
+                    <h3 id="remoteInternships">0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon saved">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+
+                <div>
+                    <span>Saved Internships</span>
+                    <h3 id="savedInternships">0</h3>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon companies">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <div>
+                    <span>Companies</span>
+                    <h3 id="totalCompanies">0</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Recommended -->
+
+        <div class="section-header">
+
+            <div>
+                <h2>Recommended for You</h2>
+                <p>Based on popular student opportunities.</p>
+            </div>
+
+            <button class="text-btn" id="viewAllBtn">
+                View all
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+        <div class="internship-grid" id="recommendedGrid">
+            <!-- Cards inserted by JavaScript -->
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         INTERNSHIPS SECTION
+    ================================ -->
+
+    <section id="internships" class="page-section hidden-section">
+
+        <div class="section-heading-large">
+            <div>
+                <span class="section-label">OPPORTUNITIES</span>
+                <h2>Find Internships</h2>
+                <p>Search and filter internships according to your interests.</p>
+            </div>
+        </div>
+
+
+        <!-- Search -->
+
+        <div class="search-container">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search internships, companies or skills..."
+                >
+
+            </div>
+
+            <button class="filter-toggle" id="filterToggle">
+                <i class="fa-solid fa-sliders"></i>
+                Filters
+            </button>
+
+        </div>
+
+
+        <!-- Filters -->
+
+        <div class="filters" id="filters">
+
+            <div class="filter-group">
+
+                <label>Work Mode</label>
+
+                <select id="modeFilter">
+                    <option value="all">All Modes</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="On-site">On-site</option>
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>Location</label>
+
+                <select id="locationFilter">
+                    <option value="all">All Locations</option>
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>Skill</label>
+
+                <select id="skillFilter">
+                    <option value="all">All Skills</option>
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>Minimum Stipend</label>
+
+                <select id="stipendFilter">
+                    <option value="0">Any Stipend</option>
+                    <option value="5000">₹5,000+</option>
+                    <option value="10000">₹10,000+</option>
+                    <option value="15000">₹15,000+</option>
+                    <option value="20000">₹20,000+</option>
+                </select>
+
+            </div>
+
+
+            <button class="clear-filter" id="clearFilters">
+                Clear Filters
+            </button>
+
+        </div>
+
+
+        <!-- Result Info -->
+
+        <div class="result-bar">
+
+            <span id="resultCount">0 internships found</span>
+
+            <select id="sortFilter">
+                <option value="latest">Sort: Latest</option>
+                <option value="stipend-high">Stipend: High to Low</option>
+                <option value="stipend-low">Stipend: Low to High</option>
+                <option value="deadline">Deadline</option>
+            </select>
+
+        </div>
+
+
+        <div class="internship-grid" id="internshipGrid">
+            <!-- Cards inserted by JavaScript -->
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SAVED SECTION
+    ================================ -->
+
+    <section id="saved" class="page-section hidden-section">
+
+        <div class="section-heading-large">
+
+            <div>
+                <span class="section-label">BOOKMARKS</span>
+                <h2>Saved Internships</h2>
+                <p>Internships you've saved for later.</p>
+            </div>
+
+        </div>
+
+        <div class="internship-grid" id="savedGrid">
+            <!-- Saved cards -->
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         PROFILE
+    ================================ -->
+
+    <section id="profile" class="page-section hidden-section">
+
+        <div class="section-heading-large">
+
+            <div>
+                <span class="section-label">ACCOUNT</span>
+                <h2>My Profile</h2>
+                <p>Manage your student profile.</p>
+            </div>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <div class="profile-large-avatar">
+                SM
+            </div>
+
+            <div class="profile-details">
+
+                <h2>Student</h2>
+                <p>Computer Science & Engineering Student</p>
+
+                <div class="profile-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Python</span>
+                </div>
+
+            </div>
+
+            <button class="secondary-btn">
+                <i class="fa-solid fa-pen"></i>
+                Edit Profile
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SETTINGS
+    ================================ -->
+
+    <section id="settings" class="page-section hidden-section">
+
+        <div class="section-heading-large">
+
+            <div>
+                <span class="section-label">PREFERENCES</span>
+                <h2>Settings</h2>
+                <p>Customize your dashboard experience.</p>
+            </div>
+
+        </div>
+
+        <div class="settings-card">
+
+            <div class="setting-row">
+
+                <div>
+                    <strong>Dark Mode</strong>
+                    <p>Switch between light and dark themes.</p>
+                </div>
+
+                <button class="toggle-switch" id="settingsThemeToggle">
+                    <span></span>
+                </button>
+
+            </div>
+
+            <div class="setting-row">
+
+                <div>
+                    <strong>Saved internships</strong>
+                    <p>Your saved internships are stored locally in your browser.</p>
+                </div>
+
+                <i class="fa-solid fa-database setting-icon"></i>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ==============================
+     DETAILS MODAL
+================================ -->
+
+<div class="modal-overlay" id="detailsModal">
+
+    <div class="details-modal">
+
+        <button class="modal-close" id="modalClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div id="modalContent">
+            <!-- Dynamic content -->
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Toast -->
+
+<div class="toast" id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Internship saved.
+    </span>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
